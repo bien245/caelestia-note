@@ -1,5 +1,3 @@
-pragma ComponentBehavior: Bound
-
 import QtQuick
 import qs.components
 import qs.config
@@ -8,7 +6,7 @@ import qs.services
 StyledRect {
     id: root
 
-    readonly property color colour: Colours.palette.m3tertiary
+    readonly property color colour: Colours.palette.m3primary
 
     implicitWidth: Config.bar.sizes.innerWidth
     implicitHeight: icon.implicitHeight + Appearance.padding.normal * 2
@@ -22,14 +20,14 @@ StyledRect {
         anchors.centerIn: parent
 
         animate: true
-        text: Opencode.busy ? "wand_stars" : "auto_awesome"
+        text: Note.busy ? "sync" : "edit_note"
         fill: 0
         color: root.colour
         font.pointSize: Appearance.font.size.large + 1
-        opacity: Opencode.busy ? 0.78 : 1
+        opacity: Note.busy ? 0.78 : 1
 
         SequentialAnimation on opacity {
-            running: Opencode.busy
+            running: Note.busy
             loops: Animation.Infinite
             alwaysRunToEnd: true
 
